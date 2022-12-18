@@ -1,3 +1,4 @@
+//  mongoose odm to interate to mongo db 
 const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema(
