@@ -43,6 +43,10 @@ h3 {
   text-align: center;
 }
 
+.logo{
+    font-size: 20px;
+    font-weight: 700;
+}
 .header {
   display: flex;
   justify-content: space-between;
@@ -107,15 +111,35 @@ h3 {
   border: none;
   background: none;
 }
+.goal .update {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.title{
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
 
 .form,
 .content {
   width: 70%;
   margin: 0 auto;
+  
+}
+.date{
+   border: 5px  solid #e6e6e6;
 }
 
 .form-group {
   margin-bottom: 10px;
+
 }
 
 .form-group input,
@@ -187,7 +211,7 @@ h3 {
   width: 64px;
   height: 64px;
   border: 8px solid;
-  border-color: #000 transparent #555 transparent;
+  border-color: rgb(0, 0, 0) transparent #555 transparent;
   border-radius: 50%;
   animation: spin 1.2s linear infinite;
 }

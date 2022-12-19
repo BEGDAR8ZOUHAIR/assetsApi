@@ -78,11 +78,11 @@ export const deleteGoal = createAsyncThunk(
 export const updateGoal = createAsyncThunk(
     'goals/update',
     async (goalData, thunkAPI) =>
-    {   
+    {
         try
         {
             const token = thunkAPI.getState().auth.user.token
-            return await goalService.updateGoal(goalData, token)
+            return await goalService.updateGoal(goalData.id, goalData.text, token)
         }
         catch (error)
         {

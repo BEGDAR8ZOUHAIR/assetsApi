@@ -38,7 +38,7 @@ function Dashboard() {
   return (
     <>
       <section className='heading'>
-        <h1>Welcome {user && user.name}</h1>
+        <div className='head'>Welcome {user && user.name}</div>
         <p>Goals Dashboard</p>
       </section>
 
@@ -52,7 +52,7 @@ function Dashboard() {
             ))}
           </div>
         ) : (
-          <h3>You have not set any goals</h3>
+          <h4>You have not set any goals</h4>
         )}
       </section>
     </>
