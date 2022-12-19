@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useState  } from "react";
 import { useDispatch } from "react-redux";
 import { deleteGoal } from "../features/goals/goalSlice";
 import { updateGoal } from "../features/goals/goalSlice";
 
 function GoalItem({ goal }) {
-  
   const [id, setId] = useState(goal._id);
   const [text, setText] = useState(goal.text);
 
@@ -14,9 +13,9 @@ function GoalItem({ goal }) {
     e.preventDefault();
 
     console.log(text, id);
-    const div = document.querySelector(".update-form");
+    const div = document.getElementById(goal._id);
     div.style.display = "none";
-    dispatch(updateGoal({id, text}));
+    dispatch(updateGoal({ id, text }));
   };
 
   return (
@@ -27,19 +26,27 @@ function GoalItem({ goal }) {
       </button>
       <button
         onClick={() => {
-          const div = document.querySelector(".update-form");
+          setText(goal.text);
+          setId(goal._id);
+          const div = document.getElementById(goal._id);
           div.style.display = "block";
         }}
         className="update"
       >
         Update
       </button>
-     
+
       <div className="date">
         {new Date(goal.createdAt).toLocaleString("en-US")}
       </div>
       {/* update form */}
-      <form className="update-form" onSubmit={onSubmit}>
+      <form
+        className="update-form"
+        style={{'display' :  "none"}}
+        id={goal._id}
+        name={goal._id}
+        onSubmit={onSubmit}
+      >
         <input
           type="text"
           value={text}
@@ -47,7 +54,9 @@ function GoalItem({ goal }) {
           className="form-control"
           placeholder="Update your goal"
         />
-        <button type="submit-form">Update</button>
+        <button className="update-form1" type="submit-form">
+          Update
+        </button>
       </form>
     </div>
   );
