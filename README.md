@@ -150,8 +150,9 @@ backend/
 List of available routes:
 
 **Auth routes** (public):\
-`POST /api/register` - register\
+`POST /api/` - register\
 `POST /api/login` - login\
+`GET /api/me` - getMe\
 
 **User routes** (private):\
 `GET /api/users` - get all users\
