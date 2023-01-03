@@ -1,6 +1,25 @@
 const asyncHandler = require('express-async-handler')
 const Goal = require('../models/goalModel')
 const User = require('../models/userModel')
+const multer = require('multer')
+
+
+
+
+const storage = multer.diskStorage({
+    destination: function (req, file, callback)
+    {
+        callback(null, './frontend/public/uploads')
+    },
+    filename: function (req, file, callback)
+    {
+        callback(null, file.originalname)
+    }
+})
+const upload = multer({ storage: storage })
+
+
+        
 
 // @desc    Get goals
 // @route   GET /api/goals
@@ -25,7 +44,8 @@ const setGoal = asyncHandler(async (req, res) =>
 
     const goal = await Goal.create({
         text: req.body.text,
-        user: req.user.id
+        user: req.user.id ,
+        // image : req.file.image
     })
 
     res.status(200).json(goal)
@@ -105,4 +125,5 @@ module.exports = {
     setGoal,
     updateGoal,
     deleteGoal,
+    upload
 }
