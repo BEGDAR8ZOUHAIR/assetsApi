@@ -34,7 +34,7 @@ function GoalForm() {
 
         </div>
         {/* upload image */}
-        <div className='form-group'>
+        {/* <div className='form-group'>
           <label htmlFor='image'>Image</label>
           <input
             type='file'
@@ -43,7 +43,7 @@ function GoalForm() {
             // value={image}
             // onChange={(e) => setImage(e.target.files[0])}
           />
-        </div>
+        </div> */}
 
 
 

@@ -156,6 +156,31 @@ export const goalSlice = createSlice({
                 state.isError = true
                 state.message = action.payload
             })
+            .addCase(updateGoal.pending, (state) =>
+            {
+                state.isLoading = true
+            }
+        )
+            .addCase(updateGoal.fulfilled, (state, action) =>
+            {
+                state.isLoading = false
+                state.isSuccess = true
+                state.goals = state.goals.map((goal) =>
+                    goal._id === action.payload.id ? action.payload : goal
+                )
+            }
+        )
+            .addCase(updateGoal.rejected, (state, action) =>
+            {   
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            }
+        )
+
+        
+            
+                
     },
 })
 
