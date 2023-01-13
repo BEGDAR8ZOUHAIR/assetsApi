@@ -5,18 +5,17 @@ const multer = require('multer')
 
 
 
-
-const storage = multer.diskStorage({
-    destination: function (req, file, callback)
+// Storage
+const Storage = multer.diskStorage({
+    // destination: './frontend/public/uploads',
+    destination: '../../../frontend/public/uploads',
+    filename:  (req, file, cb) =>
     {
-        callback(null, './frontend/public/uploads')
+    cb(null, file.originalname);
     },
-    filename: function (req, file, callback)
-    {
-        callback(null, file.originalname)
-    }
-})
-const upload = multer({ storage: storage })
+});
+const upload = multer({ storage: Storage }).single('image');
+
 
 
         
@@ -125,5 +124,5 @@ module.exports = {
     setGoal,
     updateGoal,
     deleteGoal,
-    upload
+    
 }
